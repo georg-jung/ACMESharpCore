@@ -16,6 +16,16 @@ variables:
 steps:
 - task: DotNetCoreCLI@2
   inputs:
+    command: 'test'
+    arguments: 'test/ACMESharp.MockServer.UnitTests/ACMESharp.MockServer.UnitTests.csproj -c $(buildConfiguration)'
+    
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    arguments: 'test/ACMESharp.UnitTests/ACMESharp.UnitTests.csproj -c $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  inputs:
     command: 'publish'
     publishWebProjects: false
     arguments: '-c $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/AcmeSharpCore-publish'
