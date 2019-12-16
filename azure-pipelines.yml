@@ -28,12 +28,12 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: false
-    arguments: '-c $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/AcmeSharpCore-publish'
+    arguments: 'ACMESharpCore.sln -c $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/AcmeSharpCore-publish'
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
-    arguments: '-c $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/AcmeSharpCore-nupkg'
+    arguments: 'ACMESharpCore.sln -c $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/AcmeSharpCore-nupkg'
 
 - task: PublishPipelineArtifact@1
   inputs:
