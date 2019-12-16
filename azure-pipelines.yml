@@ -16,11 +16,6 @@ variables:
 steps:
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'test'
-    arguments: '-c $(buildConfiguration)'
-
-- task: DotNetCoreCLI@2
-  inputs:
     command: 'publish'
     publishWebProjects: false
     arguments: '-c $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/AcmeSharpCore-publish'
